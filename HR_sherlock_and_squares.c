@@ -1,6 +1,6 @@
 	//hacker rank, determine numnber of perf squares between two nums
 	//again, timed out. what is going on??
-	
+	 
 	#include<stdio.h>
 	#include<math.h>
 	
