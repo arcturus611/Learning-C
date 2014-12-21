@@ -15,7 +15,7 @@
 		
 		int j;
 		
-		while(ar[curr_i]>V){
+		while(curr_i>=0 && ar[curr_i]>V){
 			ar[curr_i+1] = ar[curr_i];
 			for(j = 0; j < ar_size; j++) printf("%d ", ar[j]);
 			printf("\n");

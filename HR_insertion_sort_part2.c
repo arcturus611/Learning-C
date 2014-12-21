@@ -17,7 +17,7 @@
 		int curr_i; 
 		curr_i = ar_size - 2; //start from last but one element
 		
-		while(ar[curr_i]>V){
+		while(curr_i>=0 && ar[curr_i]>V){ //horrible errors arising from curr_i becoming negative. Invisible errors, as in, the sorting goes fine, but you see unnecessary #shifting operations===> more time lost
 			ar[curr_i+1] = ar[curr_i];
 			curr_i--;
 		}
