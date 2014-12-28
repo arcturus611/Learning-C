@@ -37,6 +37,7 @@
 	}
 	
 	int new_continuous_xor(int* arr, int N){
+	/*this new and improved function cleverly shortens the whole problem from O(n^2) to constant time for even-length arrays and O(n) for odd-length arrays. If N is even, answer = 0, else answer = xor of all odd-index elements. Proof for even length by induction. Use that result to prove result for odd-length arrays.*/
 		int x = 0;
 		if (N%2 == 0) return 0;
 		else {
