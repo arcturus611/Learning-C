@@ -56,10 +56,13 @@
 		int N, K;
 		scanf("%d %d", &N, &K);
 	
-		char read_msg[N+K-1];	
-		scanf("%s", read_msg);
 		
-		int msg[N+K-1];
+	    	/*char read_msg[N+K-1];*/
+	    	char *read_msg = (char*)malloc((N+K-1)*sizeof(char));
+	    	scanf("%s", read_msg);
+
+		/*int msg[N+K-1];*/
+		int *msg = (int*)malloc((N+K-1)*sizeof(int));
 		for(int i = 0; i<N+K-1; i++){
 			msg[i] = read_msg[i] - '0';
 		}
