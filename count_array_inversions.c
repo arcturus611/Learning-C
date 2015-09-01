@@ -12,15 +12,15 @@
 		return;
 	}
 	
-	int count_split_inversions(int* a, int len){
-		printf("\nInside split inversions code...\n");
+	long int count_split_inversions(int* a, int len){
+		//printf("\nInside split inversions code...\n");
 		int* b = (int* )malloc(len*sizeof(int));
 		
 		int* a1; int* a2; 
 		int l1 = len/2;
 		a1 = a; 
 		a2 = a+l1;
-		int count = 0;
+		long int count = 0;
 		
 		int a1_end = 0, a2_end = 0; 
 
@@ -54,37 +54,42 @@
 		
 	}
 	
-	int count_inversions(int* A, int len){
+	long int count_inversions(int* A, int len){
 		if (len<=1) return 0; 
 		int l1 = len/2; 
 		int l2 = len - l1;
 		
-		int x, y, z;
+		long int x, y, z;
 		
 		x = count_inversions(A, l1); //left inversions
-		print_array(A, l1); 
-		printf("...Number of inversions for above array: %d\n\n", x);
+		/*print_array(A, l1); 
+		printf("...Number of inversions for above array: %d\n\n", x);*/
 		
 		y = count_inversions(A+l1, l2); //right inversions
-		print_array(A+l1, l2); 
-		printf("....Number of inversions for above array: %d\n\n", y);
+		/*print_array(A+l1, l2); 
+		printf("....Number of inversions for above array: %d\n\n", y);*/
 		
 		z = count_split_inversions(A, len);
-		print_array(A, len); 
-		printf(".....Number of inversions for above array: %d\n\n", z);
+		/*print_array(A, len); 
+		printf(".....Number of inversions for above array: %d\n\n", z);*/
 		
 		return x + y + z;	
 	}
 	
 	int  main(int argc, char* argv[]){
-		int N;
-		scanf("%d", &N);
+		int N = 20;
 		int* arr = (int *)malloc(N*sizeof(int));
+		FILE* fp = fopen("IntegerArray.txt", "r");
 		
-		for(int i = 0; i<N; i++)
-			scanf("%d", arr + i);
+		int i = 0;
+		int num; 
+		while(fscanf(fp, "%d", &num)>0){
+			arr[i] = num; 
+			i++;
+		}
+		fclose(fp);
 			
-		printf("\nNumber of inversions in given array: %d\n", count_inversions(arr, N));
+		printf("\nNumber of inversions in given array: %ld\n", count_inversions(arr, N));
 		
 		return 0;
 	}
